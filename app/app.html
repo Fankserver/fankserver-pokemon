@@ -1,0 +1,10 @@
+<div>
+	<button (click)="_hideCatched = !_hideCatched">{{_hideCatched ? 'Show' : 'Hide'}} catched</button>
+</div>
+<div id="pokemon-list">
+	<span *ng-for="#pokemon of _pokemons" (click)="toggleCatched(pokemon);" [title]="pokemon.id">
+		<span *ng-if="!(_hideCatched && pokemon.catched)">
+			<img [ng-class]="{catched: pokemon.catched}" src="http://www.greenchu.de/sprites/icons/{{pokemon.id}}.png" />
+		</span>
+	</span>
+</div>
